@@ -23,3 +23,9 @@ try {
 } catch (error) {
   console.error(`执行错误: ${error}`);
 }
+
+
+ // 打印当前目录的树状结构
+  console.log('当前目录的树状结构:');
+  const treeOutput = execSync('tree').toString();  // 注意：'tree' 命令需要在运行环境中可用
+  console.log(treeOutput);

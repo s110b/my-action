@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v2  # 检出仓库代码
+        
+      - name: 安装 Tree
+        run: sudo apt-get install tree  # 安装 tree 命令
 
       - name: 读取文件的第一行
         id: read_file
@@ -15,4 +18,7 @@ jobs:
           filepath: 'read'  # 指定要读取的文件路径
 
       - name: 打印输出
-        run: echo "文件的第一行是 ${{ steps.read_file.outputs.first_line }}"  # 使用 Action 的输出
+        run: |
+          echo "文件的第一行是 ${{ steps.read_file.outputs.first_line }}"
+          echo "目录结构："
+          tree

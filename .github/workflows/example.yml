@@ -1,0 +1,18 @@
+name: 示例工作流
+on: [push]  # 指定触发事件，这里设置为每次推送时触发
+
+jobs:
+  read_file_job:
+    runs-on: ubuntu-latest  # 指定运行环境
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2  # 检出仓库代码
+
+      - name: 读取文件的第一行
+        id: read_file
+        uses: ./  # 使用当前目录下的 Action
+        with:
+          filepath: 'read'  # 指定要读取的文件路径
+
+      - name: 打印输出
+        run: echo "文件的第一行是 ${{ steps.read_file.outputs.first_line }}"  # 使用 Action 的输出

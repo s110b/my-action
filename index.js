@@ -1,4 +1,5 @@
 const process = require('process');
+const { execSync } = require('child_process');
 
 try {
   // 打印 GitHub 环境变量

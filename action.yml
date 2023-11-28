@@ -1,0 +1,13 @@
+name: 'read file'
+description: '读取指定文件的第一行内容并输出'
+inputs:
+  filepath:
+    description: '文件的路径'
+    required: true
+    default: '.'
+outputs:
+  first_line:
+    description: '文件的第一行内容'
+runs:
+  using: 'node16'
+  main: 'index.js'
